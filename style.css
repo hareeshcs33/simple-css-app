@@ -1,0 +1,19 @@
+h1 {
+    color: blue;
+}
+.box-wrapper {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.box-wrapper .box {
+    width: 330px;
+    height: 330px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ccc;
+    border: 5px solid #a3a3a3;
+    margin: 50px;
+}
