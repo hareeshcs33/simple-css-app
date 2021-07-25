@@ -106,3 +106,57 @@ class Author extends Person{
 let mark = new Author("Mark", "Richards", 55, "Architecture");
 
 mark.writeArticle();
+
+
+let person = {
+    name: 'hareesh',
+    age: 27,
+}
+function callPerson(person){
+    const { name, age } = person;
+    return `The ${name} was ${age} years old`;
+}
+console.log(callPerson(person));
+
+//check equal to 100
+const isEqualTo100 = (a,b) => a === 100 || b === 100 || (a+b) === 100;
+console.log(isEqualTo100(10,90));
+
+//find File extension
+const getFileExtension = (str) => str.slice(str.lastIndexOf('.'));
+console.log(getFileExtension('index.js'));
+
+const moveCharsForward = (str) => 
+        str
+        .split('')
+        .map(char => String.fromCharCode(char.charCodeAt(0) + 1))
+        .join('');
+console.log(moveCharsForward('abcd'));
+
+const checkEvenOdd = (num) => num % 2 === 0;
+console.log(checkEvenOdd('a'))
+
+const formatDate = (date = new Date()) => {
+    let days = date.getDate() + 1;
+    let months = date.getMonth() + 1;
+    let years = date.getFullYear();
+    if(days <= 9) {
+        days = 0 + days;
+    }
+    if(months <= 9){
+        months = '0'+months;
+    }
+    return `${days}/${months}/${years}`;
+}
+console.log(formatDate());
+
+function checkNewString(str){
+    let temp = str.slice(0,4);
+    if(temp === "New!"){
+        return str;
+    }
+    return `New! ${str}`;
+}
+const checkNewString2 = (str) => str.indexOf("New!") === 0 ? str : `New! ${str}`;
+console.log(checkNewString('New! string'));
+console.log(checkNewString2('New office'));
