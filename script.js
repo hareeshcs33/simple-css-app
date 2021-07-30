@@ -160,3 +160,109 @@ function checkNewString(str){
 const checkNewString2 = (str) => str.indexOf("New!") === 0 ? str : `New! ${str}`;
 console.log(checkNewString('New! string'));
 console.log(checkNewString2('New office'));
+
+//FIZZBUZZ
+console.log('FizzBuss Example');
+//Divisible by 3 => Fizz
+//Divisible by 5 => Buzz
+//Divisible by both 3 and 5 => FizzBuzz
+//Not divisible by 3 or 5 => input
+//Not a number => 'Not a number'
+
+function fizzBuzz(input){
+    if(isNaN(input)){
+        return 'Not a number';
+    }else if(input % 3 === 0 && input % 5 === 0){
+        return 'FizzBuzz';
+    }else if(input % 3 === 0){
+        return 'Fizz';
+    }else if(input % 5 === 0){
+        return 'Buzz'
+    }
+    return input;
+}
+const output = fizzBuzz(15);
+console.log(output);
+
+//reverse a string
+function reverseString(str){
+    return str.split('').reverse().join('');
+}
+console.log(reverseString('hello'));
+
+//reverse a number
+function reverseNumber(num){
+    return parseInt((num.toString()).split('').reverse().join(''));
+}
+console.log(reverseNumber(123));
+
+//validate a palindrome
+function isPalindrome(str){
+    let tempStr = str.split('').reverse().join('');
+    return str === tempStr;
+}
+console.log(isPalindrome('racecar'));
+console.log(isPalindrome('race'));
+
+//capitalise letter
+function capitaliseLetter(str){
+    return str.split(' ')
+                .map(letter => letter[0].toUpperCase() + letter.slice(1))
+                .join(' ');
+}
+console.log(capitaliseLetter('the simple sentance...'));
+
+//Max character
+function maxCharacter(str){
+    const charMap = {};
+    let maxNum = 0;
+    let maxChar = '';
+    str.split('').forEach(char => {
+        if(charMap[char]){
+            charMap[char]++;
+        } else {
+            charMap[char] = 1;
+        }
+    })
+    for(let char in charMap){
+        if(charMap[char] > maxNum){
+            maxNum = charMap[char];
+            maxChar = char;
+        }
+    }
+    return {maxChar,maxNum};
+}
+console.log(maxCharacter('there'));
+
+//longest world
+function longestWord(sent){
+    let wordsArr = [];
+    let max = 0;
+    let maxWord = '';
+    // let arr = sent.split(' ');
+    let arr = sent.toLowerCase().match(/[a-z0-9]+/g); //it removes camma's
+    arr.forEach(word => {
+        if(word.length > max){
+            max = word.length;
+            maxWord = word;
+        }
+    })
+    arr.filter(word => {
+        if(word.length === max){
+            wordsArr.push(word);
+        }
+    })
+    return { sent, ...wordsArr, max };
+}
+console.log(longestWord('hi hello there, i am hareesh !!!'));
+
+function longestWord2(sen){
+    //create filtered array
+    const wordsArr = sen.toLowerCase().match(/[a-z0-9]+/g);
+    //sort by length
+    const sorted = wordsArr.sort((a,b) => b.length - a.length);
+    //If multiple words
+    const longestWordArr = sorted.filter(word => word.length === sorted[0].length);
+    console.log(longestWordArr);
+}
+console.log(longestWord2('this is second longest word array in this example'));

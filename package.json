@@ -1,0 +1,23 @@
+{
+  "name": "simple-css-app",
+  "version": "1.0.0",
+  "description": "nodejs exercises",
+  "main": "index.js",
+  "scripts": {
+    "test": "no"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hareeshcs33/simple-css-app.git"
+  },
+  "author": "hareesh sapparad",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hareeshcs33/simple-css-app/issues"
+  },
+  "homepage": "https://github.com/hareeshcs33/simple-css-app#readme",
+  "dependencies": {
+    "superheroes": "^3.0.0",
+    "supervillains": "^3.0.0"
+  }
+}
