@@ -263,6 +263,74 @@ function longestWord2(sen){
     const sorted = wordsArr.sort((a,b) => b.length - a.length);
     //If multiple words
     const longestWordArr = sorted.filter(word => word.length === sorted[0].length);
-    console.log(longestWordArr);
+    return longestWordArr;
 }
 console.log(longestWord2('this is second longest word array in this example'));
+
+//chunk array
+function chunkArray(arr, len){
+    let newArr = [];
+    for(let i = 0; i < arr.length; i += len){
+        newArr.push(arr.slice(i,i+len));
+    }
+   return newArr;
+}
+console.log(chunkArray([1,2,3,4,5], 3));
+
+//flatten array
+function flattenArray(arrays){
+    //solution 1
+    let flattenArr = [];
+    arrays.forEach(arr => {
+        arr.forEach(val => {
+            flattenArr.push(val);
+        })
+    })
+    return flattenArr;
+}
+console.log(flattenArray([[1,2],[3,4],[5,6]]));
+//flatten array 2
+function flattenArray2(arrays){
+    //solution 2
+    // return arrays.reduce((a,b) => a.concat(b));
+    //solution 3
+    // return [].concat.apply([], arrays);
+    //solution 4
+    return [].concat(...arrays);
+}
+console.log(flattenArray2([[1,2],[3,4],[5,6]]));
+
+//ex. 'elbow' === 'below' //letters match
+
+function isAnagram(str1,str2){
+    return formatStr(str1) === formatStr(str2);
+}
+function formatStr(str){
+    return str
+        .replace(/[^\w]/g, '')
+        .toLowerCase()
+        .split('')
+        .sort()
+        .join();
+}
+console.log(isAnagram('elbow','below'));
+
+//letter chaange
+//change ever letter of the string to the that follows it 
+//and capitalize the vowels
+//Z should turn to A
+//ex. 'hello there' === 'Ifmmp UIfsf'
+
+function letterChange(str){
+    let newStr = str.toLowerCase().replace(/[a-z]/gi, char => {
+        if(char === 'z' || char === 'Z'){
+            return 'a';
+        }else{
+            return String.fromCharCode(char.charCodeAt() + 1);
+        }
+    });
+    newStr = newStr.replace(/a|e|i|o|u/gi, vowel => vowel.toUpperCase());
+    return newStr;
+}
+console.log('hello there =>', letterChange('hello there'));
+
